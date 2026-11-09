@@ -1,0 +1,10 @@
+# Keep personal configuration, credentials and generated dependencies out of releases.
+.env
+.env.*
+.codex/
+.agents/
+plugins/
+node_modules/
+Cache/
+Temp/
+*.log
