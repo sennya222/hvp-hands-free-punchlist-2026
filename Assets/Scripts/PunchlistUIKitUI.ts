@@ -44,7 +44,6 @@ export class PunchlistUIKitUI extends BaseScriptComponent implements PunchlistVi
   private disposed = false;
 
   onAwake(): void {
-    if (this.nativePreviewControls) global.touchSystem.touchBlocking = true;
     this.createEvent('OnDestroyEvent').bind(() => this.dispose());
     this.createEvent('OnStartEvent').bind(() => {
       if (this.disposed) return;
@@ -163,24 +162,11 @@ export class PunchlistUIKitUI extends BaseScriptComponent implements PunchlistVi
     const host = button.sceneObject;
     const visual = host.getComponent('Component.RenderMeshVisual');
     if (!visual) throw new Error('UIKit button has no native visual for touch targeting.');
-    // Wearable InteractionComponent taps select the gaze target. For the explicitly
-    // labelled desktop mode, handle real Preview touch events against projected bounds.
-    const touch = this.createEvent('TapEvent');
-    touch.bind(event => {
-      if (this.disposed) return;
-      const camera = WorldCameraFinderProvider.getInstance().getComponent();
-      const matrix = host.getTransform().getWorldTransform();
-      const mesh = visual.mesh;
-      const a = camera.worldSpaceToScreenSpace(matrix.multiplyPoint(mesh.aabbMin));
-      const b = camera.worldSpaceToScreenSpace(matrix.multiplyPoint(mesh.aabbMax));
-      const point = event.getTapPosition();
-      if (point.x >= Math.min(a.x, b.x) && point.x <= Math.max(a.x, b.x)
-          && point.y >= Math.min(a.y, b.y) && point.y <= Math.max(a.y, b.y)) {
-        print('PUNCHLIST_NATIVE_TAP ' + host.name);
-        handler();
-      }
-    });
-    return () => { touch.enabled = false; };
+    const touch = host.createComponent('Component.InteractionComponent');
+    touch.addMeshVisual(visual);
+    touch.setMinimumTouchSize(0.06);
+    const registration = touch.onTap.add(() => { print('PUNCHLIST_NATIVE_TAP ' + host.name); handler(); });
+    return () => touch.onTap.remove(registration);
   }
 
   private createLabel(parent: SceneObject, name: string, text: string, height: number, textSize: number): ElementContent {

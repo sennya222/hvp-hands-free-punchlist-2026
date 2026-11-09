@@ -1,0 +1,46 @@
+- !<AssetImportMetadata/853876dc-e131-412a-852f-53e7521fab44>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 8ae1107c-420c-4fa0-9be8-80bbedd0406d
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 8ae1107c-420c-4fa0-9be8-80bbedd0406d
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c18e46df-e4ab-4b7c-ab23-d61e1aaebf46
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c18e46df-e4ab-4b7c-ab23-d61e1aaebf46>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 7d50c7fe-1c63-4df0-b183-61d2d74e2513
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    nativePreviewControls: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - nativePreviewControls: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input bool nativePreviewControls = true

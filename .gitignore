@@ -8,3 +8,10 @@ node_modules/
 Cache/
 Temp/
 *.log
+
+# Vendor packages and template binaries are restored from official sources.
+native/Packages/
+*.lspkg
+*.lsc
+*.hdr
+*.pem

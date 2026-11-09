@@ -29,10 +29,10 @@ A learner stands beside one synthetic training workpiece, sees its short manual 
 ## Where things live
 - Object and list share a world anchor; list sits beside the object, never follows the head (default).
 - Panel source size is 34 by 36 cm. The first observed layout was about 110 cm from the camera and too small in the native frame. A 60 cm viewing distance is a proposed readability correction, pending runtime verification (default).
-- SyntheticWorkpiece has a prepared cube source intended as 10 cm wide; imported dimensions and actual scene placement remain pending (default).
+- SyntheticWorkpiece has original cube source intended as 10 cm wide. It has been imported but not placed beside the checklist; object-adjacent presentation and anchoring remain unverified (default).
 
 ## Hands and input
-- Three UIKit row controls toggle manual check state; Reset clears all checks. The frozen source snapshot includes a desktop-native tap diagnostic; its handler is under active iteration and the separate SIK trigger mode remains unverified (default).
+- Three UIKit row controls toggle manual check state; Reset clears all checks. The frozen canonical source uses native gaze + tap for the verified SPECS 27 Preview simulation; the separate SIK trigger mode and hand/pinch remain unverified (default).
 - Targets highlight when aimed at. No voice or custom gestures (default).
 
 ## When things show
@@ -51,11 +51,11 @@ A learner stands beside one synthetic training workpiece, sees its short manual 
 
 ## Risks and open questions
 - Implementation and publication are authorized through the coordinator. Personal preview review was delegated to the agents, not performed by the participant. Engineering defaults are explicitly marked; a full interview is not claimed.
-- A separate saved Default-origin project was converted to SPECS; World tracking was restored and saved, the initial UIKit revision compiled, and a real native frame showed the panel. Current native-tap/readability changes, imported workpiece and the complete interaction sequence still need verification.
+- A separate saved Default-origin project was converted to SPECS; World tracking was restored and saved, the initial UIKit revision compiled, and a real native frame showed the panel. The frozen native checklist sequence now passes gaze + tap in SPECS 27 Preview. The workpiece remains unplaced; device, pinch, spatial movement and clean restore remain unverified.
 - Feel, comfort and real tracking remain unproven on glasses.
 
 ## Verification status and snapshot input mode
-Initial native render only is verified. All five done criteria remain pending full verification. No MP4, completed interaction sequence, hand/pinch test or LEAF PASS is represented. The template guidance below is retained as the intended full workflow; native-tap mode is a deliberately narrower diagnostic and must be labelled honestly.
+The canonical source freeze `fb6696c3ad506bc3f144f8b63af86cbd5838c22b64a6815b7e7d53dd864c096d` passes the native SPECS 27 Preview gaze + tap sequence: 3 remaining, 2, 1, all complete, undo to 1, Reset to 3. Runtime text snapshots and genuine frames were reviewed by engineering agents. Criteria 2 and 3 and the Reset part of criterion 4 pass within this simulation scope. Restart behavior, criterion 1's adjacent workpiece, criterion 5's spatial behavior, hand/pinch, physical device and LEAF remain unverified. The block was imported but not placed. Video is pending. Clean dependency restore is not tested; no final contest submission is claimed.
 
 ## Build notes for CLAD
 - Build for SPECS so it runs and can be demonstrated in Lens Studio's preview. No SPECS device is available.

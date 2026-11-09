@@ -1,0 +1,221 @@
+{
+  "scope": "Lens Studio native SPECS 27 Preview simulation, gaze + tap. Not physical device/hand pinch/LEAF.",
+  "canonical_script_sha256": "fb6696c3ad506bc3f144f8b63af86cbd5838c22b64a6815b7e7d53dd864c096d",
+  "sequence": [
+    "initial",
+    "label",
+    "fastener",
+    "edge",
+    "fastener-undo",
+    "reset"
+  ],
+  "results": [
+    {
+      "step": "initial",
+      "at": "2026-11-09T21:27:39.675Z",
+      "texts": [
+        {
+          "name": "Title Content",
+          "text": "Training punchlist"
+        },
+        {
+          "name": "Counter Content",
+          "text": "3 of 3 remaining"
+        },
+        {
+          "name": "Check1 Content",
+          "text": "[ ] Sample label"
+        },
+        {
+          "name": "Check2 Content",
+          "text": "[ ] Sample fastener"
+        },
+        {
+          "name": "Check3 Content",
+          "text": "[ ] Sample edge"
+        },
+        {
+          "name": "Reset Content",
+          "text": "Reset checks"
+        },
+        {
+          "name": "DemoNote Content",
+          "text": "Native tap preview / synthetic demo"
+        }
+      ]
+    },
+    {
+      "step": "label",
+      "at": "2026-11-09T21:27:40.928Z",
+      "texts": [
+        {
+          "name": "Title Content",
+          "text": "Training punchlist"
+        },
+        {
+          "name": "Counter Content",
+          "text": "2 of 3 remaining"
+        },
+        {
+          "name": "Check1 Content",
+          "text": "[x] Sample label"
+        },
+        {
+          "name": "Check2 Content",
+          "text": "[ ] Sample fastener"
+        },
+        {
+          "name": "Check3 Content",
+          "text": "[ ] Sample edge"
+        },
+        {
+          "name": "Reset Content",
+          "text": "Reset checks"
+        },
+        {
+          "name": "DemoNote Content",
+          "text": "Native tap preview / synthetic demo"
+        }
+      ]
+    },
+    {
+      "step": "fastener",
+      "at": "2026-11-09T21:27:43.117Z",
+      "texts": [
+        {
+          "name": "Title Content",
+          "text": "Training punchlist"
+        },
+        {
+          "name": "Counter Content",
+          "text": "1 of 3 remaining"
+        },
+        {
+          "name": "Check1 Content",
+          "text": "[x] Sample label"
+        },
+        {
+          "name": "Check2 Content",
+          "text": "[x] Sample fastener"
+        },
+        {
+          "name": "Check3 Content",
+          "text": "[ ] Sample edge"
+        },
+        {
+          "name": "Reset Content",
+          "text": "Reset checks"
+        },
+        {
+          "name": "DemoNote Content",
+          "text": "Native tap preview / synthetic demo"
+        }
+      ]
+    },
+    {
+      "step": "edge",
+      "at": "2026-11-09T21:27:45.078Z",
+      "texts": [
+        {
+          "name": "Title Content",
+          "text": "Training punchlist"
+        },
+        {
+          "name": "Counter Content",
+          "text": "All 3 checks complete"
+        },
+        {
+          "name": "Check1 Content",
+          "text": "[x] Sample label"
+        },
+        {
+          "name": "Check2 Content",
+          "text": "[x] Sample fastener"
+        },
+        {
+          "name": "Check3 Content",
+          "text": "[x] Sample edge"
+        },
+        {
+          "name": "Reset Content",
+          "text": "Reset checks"
+        },
+        {
+          "name": "DemoNote Content",
+          "text": "Native tap preview / synthetic demo"
+        }
+      ]
+    },
+    {
+      "step": "fastener-undo",
+      "at": "2026-11-09T21:27:47.082Z",
+      "texts": [
+        {
+          "name": "Title Content",
+          "text": "Training punchlist"
+        },
+        {
+          "name": "Counter Content",
+          "text": "1 of 3 remaining"
+        },
+        {
+          "name": "Check1 Content",
+          "text": "[x] Sample label"
+        },
+        {
+          "name": "Check2 Content",
+          "text": "[ ] Sample fastener"
+        },
+        {
+          "name": "Check3 Content",
+          "text": "[x] Sample edge"
+        },
+        {
+          "name": "Reset Content",
+          "text": "Reset checks"
+        },
+        {
+          "name": "DemoNote Content",
+          "text": "Native tap preview / synthetic demo"
+        }
+      ]
+    },
+    {
+      "step": "reset",
+      "at": "2026-11-09T21:27:49.030Z",
+      "texts": [
+        {
+          "name": "Title Content",
+          "text": "Training punchlist"
+        },
+        {
+          "name": "Counter Content",
+          "text": "3 of 3 remaining"
+        },
+        {
+          "name": "Check1 Content",
+          "text": "[ ] Sample label"
+        },
+        {
+          "name": "Check2 Content",
+          "text": "[ ] Sample fastener"
+        },
+        {
+          "name": "Check3 Content",
+          "text": "[ ] Sample edge"
+        },
+        {
+          "name": "Reset Content",
+          "text": "Reset checks"
+        },
+        {
+          "name": "DemoNote Content",
+          "text": "Native tap preview / synthetic demo"
+        }
+      ]
+    }
+  ],
+  "source": "runtime text snapshots reviewed with genuine JPG captures by engineering coordinator and independent reviewer; private local screenshot paths removed",
+  "block_placement_verified": false,
+  "clean_dependency_restore_verified": false
+}
