@@ -1,5 +1,5 @@
 {
-  "status": "WIP_PREVIEW_NOT_VERIFIED",
+  "status": "WIP_NATIVE_RENDER_ONLY_INTERACTIONS_NOT_VERIFIED",
   "allowlist": [
     "README.md",
     "devpost/design-brief.md",
@@ -10,8 +10,8 @@
     "tests/controller.test.mjs",
     "tests/ui-stub.test.mjs",
     "publication-manifest.json",
-    "Assets/Scripts/PunchlistNativePreview.ts",
-    "NATIVE-PREVIEW-FALLBACK.md"
+    "Assets/Scripts/PunchlistUIKitUI.ts",
+    "Assets/Models/SyntheticTrainingBlock.obj"
   ],
   "exclude": [
     ".mcp.json",
@@ -26,5 +26,33 @@
     "auth",
     "registration-profile.json"
   ],
-  "note": "Only the listed source files form this WIP snapshot. No working Preview, demo video or final submission is represented."
+  "note": "Historical frozen WIP source only; initial native render belongs to an earlier revision. Full native sequence, undo/reset, hand/pinch, video and restoration UNVERIFIED. No native project/scene/vendor archives included.",
+  "canonicalSceneComponent": "Assets/Scripts/PunchlistUIKitUI.ts",
+  "nativeProjectIncluded": false,
+  "verified": {
+    "initialNativeFrame": true,
+    "fullNativeTapSequence": false,
+    "undoAndReset": false,
+    "handPinch": false,
+    "video": false
+  },
+  "sha256": {
+    "README.md": "f78eb66e576a6eaea12c052ac84e242af1564866f9b672d20309280ee25ee736",
+    "devpost/design-brief.md": "8fa02e909859d3eebf7ae920357c06090f6e8b563c6e86e6b09d7b7bdda0b71e",
+    "Assets/Scripts/PunchlistState.ts": "414f95c8723e566296a794804269597593bf1be9b730bb9644bd20edd14a44af",
+    "Assets/Scripts/PunchlistController.ts": "c2a18070e52bc944032dea9233c68901962b8d88108907881a495cf3b1aa528f",
+    "Assets/Scripts/PunchlistPanelUIStub.ts": "9622572b990defe91a9047b37d134db5ff27b6cfd0a4e5b6894502abe163c62f",
+    "tests/state.test.mjs": "e77b9156367ab153768e09efa57a670b206959274c5606865f2d7d5402fd09dd",
+    "tests/controller.test.mjs": "ea533d0c1baf4ada8f3e32695d50709a4bb6a63be831da77c2b7f68c09da847c",
+    "tests/ui-stub.test.mjs": "9e11b1fae5debe2c9621b9f92d471a4a4d5a2082c119cfe947d74b12862d8429",
+    "Assets/Scripts/PunchlistUIKitUI.ts": "ef991c514a4da64c5075a94a6f296a33fce7ba392dd58795c881b539e8083ee4",
+    "Assets/Models/SyntheticTrainingBlock.obj": "cfda6f9fae2ba92befea224d1dd1b331796e3e066de60f6479508629a745bf36"
+  },
+  "publicCopyNotes": "English public guide; exact Russian motto plus English translation. Input handler under engineering iteration; inspect exact frozen script. Not an up-to-date tested build.",
+  "supersedes": [
+    "Assets/Scripts/PunchlistNativePreview.ts",
+    "NATIVE-PREVIEW-FALLBACK.md"
+  ],
+  "snapshotCanonicalSha256": "ef991c514a4da64c5075a94a6f296a33fce7ba392dd58795c881b539e8083ee4",
+  "snapshotCopiedUtc": "2026-11-09T21:25:48.292554+00:00"
 }

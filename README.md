@@ -1,55 +1,65 @@
 # Hands-free Punchlist
 
-**WORK IN PROGRESS — native Lens Studio / SPECS Preview has not been verified. This repository is not a completed contest submission.**
+**WORK IN PROGRESS — an initial native UIKit panel render was observed. The full three-check, undo and Reset sequence is NOT VERIFIED. No demo video or final contest submission is claimed.**
 
-A manual three-item checklist intended to sit beside one synthetic training object in AR. The user checks the object, marks the corresponding item, and sees how many checks remain. It does not detect defects or recognize objects.
+A manual three-item training checklist intended to sit beside one synthetic workpiece in AR. It does not recognize defects, analyze camera frames, call external services or retain progress across sessions.
 
-## One useful spatial moment
+## The intended task
 
-1. Stand beside a clearly labelled synthetic workpiece and read its three nearby checks.
-2. Inspect the object and toggle the matching check; the remaining count updates.
-3. Complete all three checks, undo a check if necessary, or choose Reset to start again.
+1. Read three short checks beside a synthetic training object.
+2. Inspect the object and mark the matching row; the intended counter shows the remaining work.
+3. Complete the list, undo a check if needed, or choose Reset to start again.
 
-The intended interface uses standard SIK / UI Kit controls. “Hands-free” describes the goal of keeping the checklist in the user's view without holding a phone; this prototype does not implement voice control.
+These are intended actions, not a passed native runtime demonstration. “Hands-free” describes the goal of keeping the list in view without holding a phone; voice control is not implemented.
 
-## What is included
+## Verified and pending
+
+Six SDK-independent state/controller/UI-adapter tests pass. Engineering review observed a real three-row UIKit panel in native Lens Studio Multimedia Preview with SPECS 27 selected. That first frame used an earlier source revision and was too small for a clear demonstration.
+
+This frozen source iteration revises label/readability and desktop tap handling. Its canonical script SHA-256 is `ef991c514a4da64c5075a94a6f296a33fce7ba392dd58795c881b539e8083ee4`. It was copied into this release snapshot at **2026-11-09 21:25:48 UTC** (10 November 00:25:48 MSK). This is a historical WIP iteration, not an up-to-date tested build. The live editor's engineering source may already differ. The earlier frame does not verify this revision. The original synthetic cube source is intended to be 10 cm wide; native import scale, bounds and placement are unverified.
+
+Full native taps on all three rows, completion, undo, Reset, hand/pinch input, spatial movement, dependency restoration and video are **not verified**. Logic tests do not prove those native behaviors.
+
+## Source files
 
 | File | Purpose |
 | --- | --- |
-| `Assets/Scripts/PunchlistState.ts` | SDK-independent checklist state, validation, toggle and reset |
-| `Assets/Scripts/PunchlistController.ts` | View contract, event subscriptions, rendering and disposal |
-| `Assets/Scripts/PunchlistPanelUIStub.ts` | Rendering/event port adapter; creates no scene or controls |
-| `Assets/Scripts/PunchlistNativePreview.ts` | Unverified native Text / InteractionComponent tap fallback; requires scene bindings and editor compilation |
-| `tests/*.test.mjs` | Six executable state, controller and UI-port checks |
-| `devpost/design-brief.md` | Approved topic, implementation defaults, intended spatial behavior and acceptance criteria |
-| `NATIVE-PREVIEW-FALLBACK.md` | Pending native compilation, scene wiring and tap-verification steps |
-| `publication-manifest.json` | Allowlist and exclusions for this source snapshot |
+| `Assets/Scripts/PunchlistUIKitUI.ts` | The single canonical scene component; creates a UIKit/Flex panel |
+| `Assets/Scripts/PunchlistState.ts` | Validation, reversible toggles, completion/count and reset |
+| `Assets/Scripts/PunchlistController.ts` | State-to-view coordination and event disposal |
+| `Assets/Scripts/PunchlistPanelUIStub.ts` | SDK-neutral adapter test fixture; not a scene component |
+| `Assets/Models/SyntheticTrainingBlock.obj` | Original cube geometry; native import/scale unverified |
+| `tests/*.test.mjs` | Six logic and adapter checks |
+| `devpost/design-brief.md` | Approved topic, defaults and pending acceptance criteria |
+| `publication-manifest.json` | Source allowlist, hashes and verification limits |
 
-This source snapshot does **not** contain a complete Lens Studio `.esproj`, a native scene, SIK / UI Kit packages, or a verified native view adapter. The proposed layout and interaction in the brief are acceptance criteria, not evidence that they have passed in Preview. These TypeScript files are not attached to a Lens Studio scene in this snapshot. The native fallback uses Text and InteractionComponent tap input; its native compilation and runtime behavior remain unverified. It does not establish SIK pinch support or a working SPECS environment.
+The former experimental `PunchlistNativePreview.ts` and fallback guide are superseded by the canonical UIKit component and removed from the current tree. Prior commits retain them.
 
-## Run the logic test
+This snapshot contains **no saved `.esproj`, native scene or vendor archives**. It is not a complete reproducible Lens Studio project. A separately prepared native candidate is not included here.
 
-Install [Node.js](https://nodejs.org/en/download) 24 or later from its official distribution. No npm packages or paid services are required.
+## Run the logic checks
+
+Install [Node.js](https://nodejs.org/en/download) 24 or later:
 
 ```sh
 node --test --test-isolation=none tests/*.test.mjs
 ```
 
-All six checks passed locally on Node.js 24.14.1. They cover reversible toggles, counts/completion, invalid inputs, snapshot isolation, reset, controller subscriptions/disposal and UI-port rendering. These are SDK-independent logic/adapter tests; they do not compile the native fallback or test native rendering, pinching, world anchoring, device comfort or Preview stability.
+All six checks passed locally on Node.js 24.14.1. They cover reversible toggles, counts/completion, invalid input, snapshot isolation, reset, controller subscriptions/disposal and UI-adapter output. The harness uses Node's experimental TypeScript transform. It does not compile the UIKit component or test native rendering, tracking or LEAF.
 
 ## Continue in Lens Studio
 
-1. Install [Lens Studio](https://ar.snap.com/download) and use the official [Learn AR with SPECS resources](https://learn-specs.devpost.com/resources) for the SPECS base template and current setup instructions.
-2. Install the official CLAD / Devpost planning tools and required SIK / UI Kit packages from their official sources. No third-party tool packages are vendored here.
-3. Add the source modules to a new SPECS project through Lens Studio's asset import. For the original interaction design, implement `PunchlistView` using real SIK / UI Kit controls, with one subscription per row and one for Reset; call `dispose()` when the view is destroyed. For a smaller native tap diagnostic, follow `NATIVE-PREVIEW-FALLBACK.md` and compile the fallback before wiring its real component inputs.
-4. Use the brief to build the synthetic workpiece and adjacent world-anchored checklist, then verify every acceptance criterion in Interactive Preview before recording or submitting anything.
+1. Install [Lens Studio](https://ar.snap.com/download) and follow the official [Learn AR with SPECS resources](https://learn-specs.devpost.com/resources).
+2. Obtain UIKit, InteractionKit and their dependencies from the official Asset Library under their original terms. Package compatibility and a clean dependency restore are not verified by this source snapshot.
+3. Import the scripts through Lens Studio. Attach only `PunchlistUIKitUI` to a world-root scene object, with a World-tracked camera and required InteractionKit setup.
+4. `nativePreviewControls` separates the desktop-native tap diagnostic from the SIK trigger mode. Inspect the exact committed script for this frozen implementation; native input is under active iteration. Neither a successful full tap sequence nor hand/pinch support is claimed.
+5. Compile the actual source, verify readable rendering, then test each row, completion, undo and Reset against visible state. Import the block and measure its bounds/placement. Verify spatial behavior separately.
+6. Record genuine Preview evidence only after the corresponding actions pass. Label desktop tap input accurately.
 
-## Entrant and development disclosure
+## Entrant and AI assistance
 
-The intended entrant is **Timofei Filimonov**. The Hands-free Punchlist topic and implementation/publication were approved through Pavel. Development and documentation are AI-assisted. A completed learner interview, Timofei's personal demo test, and his personal review of every engineering default are not established by this repository. The original design brief keeps those distinctions explicit.
+The intended entrant is **Timofei Filimonov**. The topic, implementation and publication were approved through Pavel. Development and documentation are **AI-assisted**. Engineering agents are handling demo review; participant-run testing, Timofei's personal demo viewing and a completed learner interview are not claimed.
 
-Native SPECS Preview is unverified, a public demo video is not provided, and no final Devpost project submission is claimed.
+## Rights
 
-## Rights and dependencies
-
-The source files in this snapshot were created for this project. No blanket license is granted here. Snap SDKs, templates, SIK, UI Kit, CLAD and any separately installed dependencies remain subject to their own licenses and terms. This repository does not redistribute those dependencies.
+The project source and synthetic geometry were created for this project. No blanket license is granted here. Snap SDKs, templates, UIKit, InteractionKit, CLAD and separately installed dependencies retain their own terms. This repository does not redistribute their archives, the full SDK or template HDR images.

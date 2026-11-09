@@ -2,18 +2,17 @@
 status: approved_for_implementation_via_pavel
 topic_approval: approved_via_pavel
 full_interview: not_completed
-participant_demo_review: not_confirmed
+participant_demo_review: delegated_to_agents_not_personally_performed
 ---
 
 # Design brief: Hands-free Punchlist
 
-**Человек становится участником, ставит агентам цель занять призовое место, а агенты самостоятельно исследуют методы, пишут код, проводят эксперименты и меняют подход по результатам.**
+<strong style="color:#B8860B">Человек становится участником, ставит агентам цель занять призовое место, а агенты самостоятельно исследуют методы, пишут код, проводят эксперименты и меняют подход по результатам.</strong>
+
+**English translation:** A person becomes a participant, sets the agents the goal of taking a prize-winning place, and the agents independently research methods, write code, conduct experiments, and change their approach based on the results.
 
 ## Source of choice and approval
-09.11.2026: root relayed Pavel saying: «Тимофей одобряет и доверяет. Но скажи пожалуйста, а это сколько времени есть до реализации проекта? Тогда важно, чтобы узнать, успеет Тимофей посмотреть или нет.» This confirms the topic choice through Pavel. It does not establish a completed learner interview, approval of every detail below, or a personal demo review. All unchosen engineering values are marked (default). This draft prepares reversible work while awaiting the saved SPECS project and learner review.
-
-
-09.11.2026 около 23:00 МСК root передал новое прямое поручение Павла: «Тимофей уже согласен, делай. И сразу публикуй.» Это разрешает реализацию и публикацию чистого отдельного проекта. Полное интервью и личный просмотр демо по-прежнему не заявляются.
+The participant's coordinator relayed approval of the Hands-free Punchlist topic on 9 November 2026, followed by explicit authorization to implement and publish this separate project. This is an engineering brief prepared under that authorization. A full learner interview and personal demo review have not been completed or claimed. Values not selected by the participant are marked (default).
 
 ## The one spatial moment
 A learner stands beside one synthetic training workpiece, sees its short manual punchlist placed beside it, and marks checks while keeping the object in view. Synthetic training context and wording are engineering defaults.
@@ -29,11 +28,11 @@ A learner stands beside one synthetic training workpiece, sees its short manual 
 
 ## Where things live
 - Object and list share a world anchor; list sits beside the object, never follows the head (default).
-- Checklist center about 100 cm from starting view and slightly below eye level; panel about 45 by 40 cm (default; adjust after Preview).
-- SyntheticWorkpiece is a simple block, about 25 cm wide (default).
+- Panel source size is 34 by 36 cm. The first observed layout was about 110 cm from the camera and too small in the native frame. A 60 cm viewing distance is a proposed readability correction, pending runtime verification (default).
+- SyntheticWorkpiece has a prepared cube source intended as 10 cm wide; imported dimensions and actual scene placement remain pending (default).
 
 ## Hands and input
-- Three large SIK/UIKit row controls toggle manual check state; Reset clears all checks (default).
+- Three UIKit row controls toggle manual check state; Reset clears all checks. The frozen source snapshot includes a desktop-native tap diagnostic; its handler is under active iteration and the separate SIK trigger mode remains unverified (default).
 - Targets highlight when aimed at. No voice or custom gestures (default).
 
 ## When things show
@@ -41,8 +40,8 @@ A learner stands beside one synthetic training workpiece, sees its short manual 
 - No out-of-view alert is required in this single-object demonstration (default).
 
 ## Done criteria
-1. Interactive Preview shows the synthetic workpiece and a readable, spatially adjacent list of three demo checks.
-2. One click/pinch changes exactly its targeted check and updates the remaining count once.
+1. Native SPECS 27 Preview shows the synthetic workpiece and a readable, adjacent list of three demo checks.
+2. One native tap changes exactly its targeted check and updates the remaining count once. Pinch is a separate unverified input mode.
 3. Completing every check shows completion; undoing one returns the remaining state.
 4. Reset clears every check and returns the initial count; restarting Preview does not duplicate events or retain prior progress.
 5. Moving the Preview viewpoint leaves the list attached beside the workpiece, rather than attached to the viewer.
@@ -51,9 +50,12 @@ A learner stands beside one synthetic training workpiece, sees its short manual 
 - Real-world defect detection, live vision, speech recognition, persistent anchors, shared multi-user state and external services.
 
 ## Risks and open questions
-- Learner wording, actual context and final dimensions need review; the topic alone has approval through Pavel.
-- No saved SPECS Base Template or successful Preview has yet been established by this engineering branch.
+- Implementation and publication are authorized through the coordinator. Personal preview review was delegated to the agents, not performed by the participant. Engineering defaults are explicitly marked; a full interview is not claimed.
+- A separate saved Default-origin project was converted to SPECS; World tracking was restored and saved, the initial UIKit revision compiled, and a real native frame showed the panel. Current native-tap/readability changes, imported workpiece and the complete interaction sequence still need verification.
 - Feel, comfort and real tracking remain unproven on glasses.
+
+## Verification status and snapshot input mode
+Initial native render only is verified. All five done criteria remain pending full verification. No MP4, completed interaction sequence, hand/pinch test or LEAF PASS is represented. The template guidance below is retained as the intended full workflow; native-tap mode is a deliberately narrower diagnostic and must be labelled honestly.
 
 ## Build notes for CLAD
 - Build for SPECS so it runs and can be demonstrated in Lens Studio's preview. No SPECS device is available.
