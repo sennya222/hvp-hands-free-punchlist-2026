@@ -1,0 +1,30 @@
+{
+  "status": "WIP_PREVIEW_NOT_VERIFIED",
+  "allowlist": [
+    "README.md",
+    "devpost/design-brief.md",
+    "Assets/Scripts/PunchlistState.ts",
+    "Assets/Scripts/PunchlistController.ts",
+    "Assets/Scripts/PunchlistPanelUIStub.ts",
+    "tests/state.test.mjs",
+    "tests/controller.test.mjs",
+    "tests/ui-stub.test.mjs",
+    "publication-manifest.json",
+    "Assets/Scripts/PunchlistNativePreview.ts",
+    "NATIVE-PREVIEW-FALLBACK.md"
+  ],
+  "exclude": [
+    ".mcp.json",
+    ".codex",
+    ".agents",
+    "plugins",
+    "Cache",
+    "Support",
+    "Workspaces",
+    "PluginsUserPreferences",
+    "logs",
+    "auth",
+    "registration-profile.json"
+  ],
+  "note": "Only the listed source files form this WIP snapshot. No working Preview, demo video or final submission is represented."
+}

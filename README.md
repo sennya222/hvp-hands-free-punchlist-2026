@@ -18,26 +18,30 @@ The intended interface uses standard SIK / UI Kit controls. “Hands-free” des
 | --- | --- |
 | `Assets/Scripts/PunchlistState.ts` | SDK-independent checklist state, validation, toggle and reset |
 | `Assets/Scripts/PunchlistController.ts` | View contract, event subscriptions, rendering and disposal |
-| `tests/controller.test.mjs` | Executable controller logic test with an in-memory view |
+| `Assets/Scripts/PunchlistPanelUIStub.ts` | Rendering/event port adapter; creates no scene or controls |
+| `Assets/Scripts/PunchlistNativePreview.ts` | Unverified native Text / InteractionComponent tap fallback; requires scene bindings and editor compilation |
+| `tests/*.test.mjs` | Six executable state, controller and UI-port checks |
 | `devpost/design-brief.md` | Approved topic, implementation defaults, intended spatial behavior and acceptance criteria |
+| `NATIVE-PREVIEW-FALLBACK.md` | Pending native compilation, scene wiring and tap-verification steps |
+| `publication-manifest.json` | Allowlist and exclusions for this source snapshot |
 
-This source snapshot does **not** contain a complete Lens Studio `.esproj`, a native scene, SIK / UI Kit packages, or a verified native view adapter. The proposed layout and interaction in the brief are acceptance criteria, not evidence that they have passed in Preview. These TypeScript files are not attached to a Lens Studio scene in this snapshot.
+This source snapshot does **not** contain a complete Lens Studio `.esproj`, a native scene, SIK / UI Kit packages, or a verified native view adapter. The proposed layout and interaction in the brief are acceptance criteria, not evidence that they have passed in Preview. These TypeScript files are not attached to a Lens Studio scene in this snapshot. The native fallback uses Text and InteractionComponent tap input; its native compilation and runtime behavior remain unverified. It does not establish SIK pinch support or a working SPECS environment.
 
 ## Run the logic test
 
 Install [Node.js](https://nodejs.org/en/download) 24 or later from its official distribution. No npm packages or paid services are required.
 
 ```sh
-node --test tests/controller.test.mjs
+node --test --test-isolation=none tests/*.test.mjs
 ```
 
-The test checks initial state, one valid toggle, an ignored unknown item, reset and subscription cleanup on disposal. It passed locally on Node.js 24.14.1. This is a logic test; it does not test rendering, pinching, world anchoring, device comfort or Preview stability.
+All six checks passed locally on Node.js 24.14.1. They cover reversible toggles, counts/completion, invalid inputs, snapshot isolation, reset, controller subscriptions/disposal and UI-port rendering. These are SDK-independent logic/adapter tests; they do not compile the native fallback or test native rendering, pinching, world anchoring, device comfort or Preview stability.
 
 ## Continue in Lens Studio
 
 1. Install [Lens Studio](https://ar.snap.com/download) and use the official [Learn AR with SPECS resources](https://learn-specs.devpost.com/resources) for the SPECS base template and current setup instructions.
 2. Install the official CLAD / Devpost planning tools and required SIK / UI Kit packages from their official sources. No third-party tool packages are vendored here.
-3. Add these two scripts to a new SPECS project. Implement `PunchlistView` using the real SDK controls, with one subscription per row and one for Reset; call `dispose()` when the view is destroyed.
+3. Add the source modules to a new SPECS project through Lens Studio's asset import. For the original interaction design, implement `PunchlistView` using real SIK / UI Kit controls, with one subscription per row and one for Reset; call `dispose()` when the view is destroyed. For a smaller native tap diagnostic, follow `NATIVE-PREVIEW-FALLBACK.md` and compile the fallback before wiring its real component inputs.
 4. Use the brief to build the synthetic workpiece and adjacent world-anchored checklist, then verify every acceptance criterion in Interactive Preview before recording or submitting anything.
 
 ## Entrant and development disclosure
